@@ -3,8 +3,8 @@
 all: build
 
 build: clean assets
-	python3.3 build/scripts/build.py build
-	python3.3 build/scripts/zip_extensions.py
+	python3 build/scripts/build.py build
+	python3 build/scripts/zip_extensions.py
 
 assets:
 	mkdir build/resources || true
@@ -17,7 +17,7 @@ osx:
 	@echo "macintosh saddening is not yet implemented"
 
 linux: build
-	python3.3 setup.py build
+	python3 setup.py build
 
 debian:
 	@echo "debian packaging is not yet implemented"
@@ -29,10 +29,10 @@ tests: build
 	mkdir tests/temp || true
 	mkdir tests/mock/assets || true
 	cp build/resources/commotion_assets_rc.py tests/mock/assets/. || true
-	python3.3 tests/run_tests.py
+	python3 tests/run_tests.py
 
 clean:
-	python3.3 build/scripts/build.py clean
+	python3 build/scripts/build.py clean
 	rm -fr build/resources || true
 	rm -fr build/exe.* || true
 	rm -fr tests/temp/* || true
